@@ -1,12 +1,15 @@
-import React from "react";
+import React from 'react'
+import Header from './Header'
 
 
-function () {
-    return ( 
-        <div className="">
-            <div className=""></div>
+const Categories = () => {
+  return (
+    <div>
+        <div>
+            <Header />
         </div>
-     );
+    </div>
+  )
 }
 
-export default ;
+export default Categories

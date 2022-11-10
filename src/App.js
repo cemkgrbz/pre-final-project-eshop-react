@@ -5,7 +5,7 @@ import Header from "./components/Header";
 function App() {
   return (
     <div className="h-[100vh] relative">
-      <Header />
+      {/* <Header /> */}
       <div>
         <div className="w-[65%] h-[15rem] border-2 text-center m-auto mt-10">Main Category</div>
         <div className="flex justify-center mb-3 mt-4 gap-10 ">
@@ -26,7 +26,7 @@ function App() {
       </div>
 
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
