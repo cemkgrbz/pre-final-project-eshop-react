@@ -2,7 +2,7 @@ import React from 'react'
 import Header from './Header'
 
 
-const Categories = () => {
+const Products = () => {
   return (
     <div>
         <div>
@@ -12,4 +12,4 @@ const Categories = () => {
   )
 }
 
-export default Categories
+export default Products
