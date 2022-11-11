@@ -69,13 +69,14 @@ function App() {
 
         {
           products.map((item,idx) =>
-          <Link to={`/${item.title}`}><div key={idx} className="w-[16rem] h-[10rem] border-2 mb-16">
-            <img src={item.images[2]} alt="" />
-            <div className="flex justify-between">
+          <Link to={`/${item.title}`}><div key={idx} className="w-[16rem] mb-8">
+            <img src={item.images[2]} alt="" className="border-2"/>
+            <div className="flex justify-between ">
               <p>{item.title}</p>
               <p>{item.price}€</p>
 
             </div>
+            <button className="text-center bg-amber-500 rounded-xl px-2 py-1 text-white">Add to the Cart</button>
           </div></Link>
           )
         }
