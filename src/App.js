@@ -9,7 +9,8 @@ import mainCat from "./images/mainCat.jpg";
 
 function App() {
 
-  const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const getData = async() =>{
@@ -19,8 +20,18 @@ function App() {
       setCategories(data.slice(0,4))
     };  
     getData();
+
+    const getProducts = async() =>{
+      const response = await fetch("https://api.escuelajs.co/api/v1/products")
+      const data = await response.json();
+      // console.log(data)
+      setProducts(data.slice(0,12))
+    };  
+    getProducts();
   }, []);
   console.log(categories[0])
+
+  console.log(products)
 
   const mainCategory = [categories[0]]
   const otherCategories = categories.slice(1,4);
@@ -52,15 +63,22 @@ function App() {
           )
         }
       </div>
-      <div className="flex flex-wrap w-[70%] justify-center m-auto gap-5 mb-10">
-        <div className="w-[14rem] h-[10rem] border-2">Products</div>
-        <div className="w-[14rem] h-[10rem] border-2">Products</div>
-        <div className="w-[14rem] h-[10rem] border-2">Products</div>
-        <div className="w-[14rem] h-[10rem] border-2">Products</div>
-        <div className="w-[14rem] h-[10rem] border-2">Products</div>
-        <div className="w-[14rem] h-[10rem] border-2">Products</div>
-        <div className="w-[14rem] h-[10rem] border-2">Products</div>
-        <div className="w-[14rem] h-[10rem] border-2">Products</div>
+      
+      
+        <div className="flex flex-wrap w-[80%] justify-center m-auto gap-5 mb-10">
+
+        {
+          products.map((item,idx) =>
+          <Link to={`/${item.title}`}><div key={idx} className="w-[16rem] h-[10rem] border-2 mb-16">
+            <img src={item.images[2]} alt="" />
+            <div className="flex justify-between">
+              <p>{item.title}</p>
+              <p>{item.price}€</p>
+
+            </div>
+          </div></Link>
+          )
+        }
       </div>
 
 
