@@ -1,40 +1,39 @@
-import React from 'react'
+import React from "react";
+import Footer from "./components/Footer";
 
 function SingleProduct() {
   return (
-    <div>
-      <div>
+    <div className="flex flex-col justify-between">
+      <div className=" w-[50%] h-[15rem] border-2 text-center m-auto mt-10">
         <h2>Name of the Product</h2>
       </div>
-      <div>
-        <div>
+      <div className="flex justify-center  w-full my-10 ">
+        <div className="mr-10 w-[40%]  border-2 text-center  ">
           {" "}
           PHOTO <img src="" alt="" />{" "}
         </div>
-        <div>
-          <div>
+        <div className=" w-[40%]  border-2 p-3">
+          <div className=" border-2 text-center  ">
             <p>
               <strong>PRICE</strong>
             </p>
           </div>
-          <div>
-            <select name="" id=""></select>
-
+          <div className="ml-10 w-[8%] border-2 text-center  mt-10">
+            <select name="" id="">
+              <option value="">Please Select</option>
+            </select>
+          </div>
+          <div className="ml-10 w-[8%] border-2 text-center  mt-10">
             <button>ADD TO BAG</button>
           </div>
-          <div>
+          <div className="ml-10 w-[33%]  border-2 text-center  mt-10">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos amet
               quibusdam, iure provident fugiat adipisci quaerat tempora
-              molestiae molestias accusamus facere distinctio voluptatum, optio
-              maiores. Ex dicta numquam soluta animi? Vitae corporis, totam
-              sint, facilis veritatis possimus tenetur laboriosam corrupti
-              quibusdam deserunt dolores fugiat nobis aliquid vero omnis dicta.
-              Similique provident explicabo excepturi nostrum qui, quia
-              laudantium cupiditate sed debitis. Tempore distinctio ex ad,
-              similique labore a cum cumque earum consequuntur unde vitae quos
-              voluptatum quaerat repellat nostrum sunt ut est atque nesciunt
-              iste animi
+              molestiae molestias accusamus facere distinctio Lorem ipsum dolor
+              sit amet consectetur adipisicing elit. Quos amet quibusdam, iure
+              provident fugiat adipisci quaerat tempora molestiae molestias
+              accusamus facere distinctio
             </p>
           </div>
         </div>
@@ -43,4 +42,4 @@ function SingleProduct() {
   );
 }
 
-export default SingleProduct
+export default SingleProduct;
