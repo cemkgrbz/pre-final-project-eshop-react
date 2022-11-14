@@ -1,41 +1,62 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Footer from "./components/Footer";
+import SelectSizes from "./components/SelectSizes";
+import Badge from '@mui/material/Badge';
+import IconButton from '@mui/material/IconButton';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-function SingleProduct() {
+function SingleProduct(item) {
+
+  const [singleProduct, setSingleProduct] = useState([]);
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    const getData = async() =>{
+      const response = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`)
+      const data = await response.json();
+      console.log(data)
+
+      setSingleProduct(data);
+    };  
+    getData();
+
+  
+  }, []);
+
   return (
-    <div className="flex flex-col justify-between">
-      <div className=" w-[50%] h-[15rem] border-2 text-center m-auto mt-10">
-        <h2>Name of the Product</h2>
+    <div className="flex flex-col justify-between w-[70%] m-auto">
+      
+      <div className="mt-10 m-auto text-[4vw]">
+        {singleProduct.title}
       </div>
-      <div className="flex justify-center  w-full my-10 ">
-        <div className="mr-10 w-[40%]  border-2 text-center  ">
-          {" "}
-          PHOTO <img src="" alt="" />{" "}
+
+      <div className="flex justify-center flex-wrap my-10 ">
+
+        <div className="w-[24rem] text-center">
+          <img src={singleProduct.images} alt="" className="rounded-xl"/>
         </div>
-        <div className=" w-[40%]  border-2 p-3">
-          <div className=" border-2 text-center  ">
-            <p>
-              <strong>PRICE</strong>
-            </p>
-          </div>
-          <div className="ml-10 w-[8%] border-2 text-center  mt-10">
-            <select name="" id="">
-              <option value="">Please Select</option>
+
+        <div className="flex flex-col items-center justify-center w-[24rem] p-3">
+          
+          <div className="font-bold text-center">Price: {singleProduct.price} €</div>
+
+
+          <div className="w-[8%] border-2 text-center mt-10">
+            <select  name="" id="">
+              <option value={SelectSizes}></option>
             </select>
           </div>
-          <div className="ml-10 w-[8%] border-2 text-center  mt-10">
-            <button>ADD TO BAG</button>
+  
+          <button className="text-center bg-amber-500 rounded-xl px-2 py-1 w-[10rem] mt-4 text-white">
+            Add to the Cart
+          </button>
+
+          <div className="ml-5 mt-10">
+                 {singleProduct.description}
           </div>
-          <div className="ml-10 w-[33%]  border-2 text-center  mt-10">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos amet
-              quibusdam, iure provident fugiat adipisci quaerat tempora
-              molestiae molestias accusamus facere distinctio Lorem ipsum dolor
-              sit amet consectetur adipisicing elit. Quos amet quibusdam, iure
-              provident fugiat adipisci quaerat tempora molestiae molestias
-              accusamus facere distinctio
-            </p>
-          </div>
+
         </div>
       </div>
     </div>

@@ -34,7 +34,7 @@ function App() {
       const response = await fetch("https://api.escuelajs.co/api/v1/products")
       const data = await response.json();
       // console.log(data)
-      setProducts(data.slice(0,10))
+      setProducts(data.slice(0,8))
     };  
     getProducts();
   }, []);
@@ -65,14 +65,14 @@ function App() {
           otherCategories.map((item,idx) =>
 
             <Link to={`/${item.name}`}> 
-            <div key={idx} className="h-[13rem] w-[20rem] text-center">
+            <div key={idx} className="h-[13rem] w-[18rem] text-center mt-4 mb-8">
               <img src={item.image} className="border-2" alt=""/>{item.name}
             </div> 
           </Link>
           )
         }
       </div>
-      <div className="flex items-center justify-center italic bg-amber-500 h-14 mb-12 mt-[6rem] text-center text-xl">
+      <div className="flex items-center justify-center italic bg-amber-500 h-14 mb-12 text-center text-xl">
         Take a look at our top products!
       </div>
       
@@ -80,9 +80,9 @@ function App() {
 
         {
           products.map((item,idx) =>
-          <div key={idx} className="relative w-[16rem] mb-8">
-            <Link to={`/${item.title}`}>
-            <img src={item.images[1]} alt="" className="border-2"/>
+          <div key={idx} item={item} className="relative w-[16rem] mb-8">
+            <Link to={`/singleProduct/${item.id}`}>
+            <img src={item.images[1]} alt="" className="border-2 rounded-lg hover:opacity-75"/>
             <div className="flex justify-between ">
               <p>{item.title}</p>
               <p className="font-bold">{item.price}€</p>
