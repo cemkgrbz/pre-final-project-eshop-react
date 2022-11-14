@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { createContext } from "react";
-import { useParams } from "react-router-dom";
 
 
 export const Context = createContext();
 
 const ContextProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
+  const [topProducts, setTopProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [cart, setCart] = useState([]);
 
-
-//   const { id } = useParams();
 
   useEffect(() => {
    
@@ -23,17 +22,28 @@ const ContextProvider = ({ children }) => {
     };  
     getProducts();
 
-    const getCategories= async() =>{
-        const response = await fetch(`https://api.escuelajs.co/api/v1/categories/1/products`)
-        const data = await response.json();
-        // console.log(data)
-        setCategories(data.slice(0,30))
-      };  
-      getCategories();
+    const getCategories = async() =>{
+      const response = await fetch("https://api.escuelajs.co/api/v1/categories")
+      const data = await response.json();
+      // console.log(data)
+      setCategories(data.slice(0,4))
+    };  
+    getCategories();
+
+    const getTopProducts = async() =>{
+      const response = await fetch("https://api.escuelajs.co/api/v1/products")
+      const data = await response.json();
+      // console.log(data)
+      setTopProducts(data.slice(0,8))
+    };  
+    getTopProducts();
+
   }, []);
 
+    
+
   return (
-    <Context.Provider value={{ products, setProducts, categories, setCategories}}>
+    <Context.Provider value={{products, setProducts, topProducts, setTopProducts, categories, setCategories, cart, setCart}}>
 
       {children}
     </Context.Provider>

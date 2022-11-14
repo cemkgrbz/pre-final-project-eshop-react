@@ -1,13 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import SelectSizes from "./components/SelectSizes";
+import { Context } from './context/ContextProvider';
+
 
 
 function SingleProduct(item) {
 
   const [singleProduct, setSingleProduct] = useState([]);
+  const {cart, setCart} = useContext(Context);
+
 
   const { id } = useParams();
+
+
+  const handleClick = (item) => {
+    setCart([...cart, item])
+    console.log(cart)
+  }
 
   useEffect(() => {
     const getData = async() =>{
@@ -46,7 +56,7 @@ function SingleProduct(item) {
             </select>
           </div>
   
-          <button className="text-center bg-amber-500 rounded-xl px-2 py-1 w-[10rem] mt-4 text-white">
+          <button onClick={() => handleClick(item)} className="text-center bg-amber-500 rounded-xl px-2 py-1 w-[10rem] mt-4 text-white">
             Add to the Cart
           </button>
 

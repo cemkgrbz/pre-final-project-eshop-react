@@ -23,9 +23,9 @@ function Footer() {
             <div>Track Shipping</div>
           </div>
         </footer>
-        <div className="flex justify-between px-4 py-2 text-[12px] bg-slate-700 text-white">
+        <div className="flex justify-between px-6 py-2 text-[12px] bg-slate-700 text-white">
           <div className="">2022 Copyright</div>
-          <p>ACS Eshop</p>
+          <p>ACD Eshop</p>
         </div>
       </div>
     </div>

@@ -1,57 +1,35 @@
-// import Footer from "./components/Footer";
-// import Header from "./components/Header";
-
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState,useContext,useEffect } from "react";
 import { Link } from "react-router-dom";
 import mainCat from "./images/mainCat.jpg";
 import Badge from '@mui/material/Badge';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Context } from './context/ContextProvider';
+
 
 
 function App() {
 
-  const [categories, setCategories] = useState([]);
-  const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
+  // const [categories, setCategories] = useState([]);
+  // const [products, setProducts] = useState([]);
+  // const [cart, setCart] = useState([]);
+
+
+  const {categories, setCategories, topProducts, setTopProducts, cart, setCart} = useContext(Context);
+
 
   const handleClick = (item) => {
     setCart([...cart, item])
     console.log(cart)
   }
 
-  useEffect(() => {
-    const getData = async() =>{
-      const response = await fetch("https://api.escuelajs.co/api/v1/categories")
-      const data = await response.json();
-      // console.log(data)
-      setCategories(data.slice(0,4))
-    };  
-    getData();
-
-    const getProducts = async() =>{
-      const response = await fetch("https://api.escuelajs.co/api/v1/products")
-      const data = await response.json();
-      // console.log(data)
-      setProducts(data.slice(0,8))
-    };  
-    getProducts();
-  }, []);
-  // console.log(categories[0])
-
-  // console.log(products)
-
-  // const mainCategory = [categories[0]]
   const otherCategories = categories.slice(1,4);
-
-  // console.log(mainCategory)
   
   return (
     <div className="h-[100%]">
-      {/* <Header /> */}
+
       <div>
-        <Link to={"/clothes"}> <div className="relative w-[75%] h-[30%] text-center m-auto mt-10">
+        <Link to={"/categories/1"}> <div className="relative w-[75%] h-[30%] text-center m-auto mt-10">
           <img src={mainCat} alt="" className="border-2 object-contain relative"/>
           <p className="absolute top-[50%] left-[60%] text-[5vw]">
             All Clothes
@@ -64,8 +42,8 @@ function App() {
         {
           otherCategories.map((item,idx) =>
 
-            <Link to={`/${item.name}`}> 
-            <div key={idx} className="h-[13rem] w-[18rem] text-center mt-4 mb-8">
+            <Link to={`/categories/${item.id}`} key={idx}> 
+            <div className="h-[13rem] w-[18rem] text-center mt-4 mb-8">
               <img src={item.image} className="border-2" alt=""/>{item.name}
             </div> 
           </Link>
@@ -79,7 +57,7 @@ function App() {
         <div className="flex flex-wrap w-[80%] justify-center m-auto gap-5 mb-10">
 
         {
-          products.map((item,idx) =>
+          topProducts.map((item,idx) =>
           <div key={idx} item={item} className="relative w-[16rem] mb-8">
             <Link to={`/singleProduct/${item.id}`}>
             <img src={item.images[1]} alt="" className="border-2 rounded-lg hover:opacity-75"/>
@@ -100,8 +78,6 @@ function App() {
         }
       </div>
 
-
-      {/* <Footer /> */}
     </div>
   );
 }

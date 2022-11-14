@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../images/acd-eshop.png";
 import { BsSearch } from "react-icons/bs";
 import { GoHome } from "react-icons/go";
@@ -7,10 +7,13 @@ import Badge from '@mui/material/Badge';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { FaShippingFast } from "react-icons/fa";
+import { Context } from "../context/ContextProvider";
 
 
 
 function Header() {
+
+    const { cart, setCart } = useContext(Context)
 
     return (
     <div>
@@ -21,11 +24,11 @@ function Header() {
             <Link to="/"><GoHome className="text-[2.2rem] mb-1 "/></Link>
                 <BsSearch className="text-[2rem] mb-2 text-black" />
                 <input type="text" className="mb-2 rounded-2xl p-2 pl-5 w-[40%]" placeholder="Search" />
-                <IconButton aria-label="cart" >
-                    <Badge badgeContent={3} color="secondary" className="text-amber-500 ">
+               <Link to="/cart"><IconButton aria-label="cart" >
+                    <Badge badgeContent={cart.length} color="secondary" className="text-amber-500 ">
                         <ShoppingCartIcon/>
                     </Badge>
-                </IconButton>
+                </IconButton></Link> 
         </form>
     </div>
     <p className="flex items-center gap-6 justify-center p-1 bg-amber-500 text-center italic text-sm border-b-2 border-slate-400"><FaShippingFast/> Free shipping on Orders Over 50€ <FaShippingFast/>
