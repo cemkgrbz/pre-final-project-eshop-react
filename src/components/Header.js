@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import Badge from '@mui/material/Badge';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { FaShippingFast } from "react-icons/fa";
+
 
 
 function Header() {
@@ -22,13 +24,14 @@ function Header() {
                 <BsSearch className="text-[2rem] mb-2 text-black" />
                 <input type="text" className="mb-2 rounded-2xl p-2 pl-5 w-[40%]" placeholder="Search" />
                 <IconButton aria-label="cart" >
-                    <Badge badgeContent={4} color="secondary" className="text-amber-500 ">
+                    <Badge badgeContent={3} color="secondary" className="text-amber-500 ">
                         <ShoppingCartIcon/>
                     </Badge>
                 </IconButton>
         </form>
     </div>
-    <p className="p-1 bg-amber-500 text-center italic text-sm border-b-2 bg-amber-500 border-slate-400">Free shipping on Orders Over 50€</p> 
+    <p className="flex items-center gap-6 justify-center p-1 bg-amber-500 text-center italic text-sm border-b-2 bg-amber-500 border-slate-400"><FaShippingFast/> Free shipping on Orders Over 50€ <FaShippingFast/>
+    </p> 
     </div>);
 }
 
