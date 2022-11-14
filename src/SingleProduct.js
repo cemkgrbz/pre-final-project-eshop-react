@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Footer from "./components/Footer";
 import SelectSizes from "./components/SelectSizes";
-import Badge from '@mui/material/Badge';
-import IconButton from '@mui/material/IconButton';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
 
 function SingleProduct(item) {
 

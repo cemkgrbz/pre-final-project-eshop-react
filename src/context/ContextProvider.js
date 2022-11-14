@@ -10,7 +10,7 @@ const ContextProvider = ({ children }) => {
   const [categories, setCategories] = useState([]);
 
 
-  const { id } = useParams();
+//   const { id } = useParams();
 
   useEffect(() => {
    

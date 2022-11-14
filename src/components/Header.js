@@ -1,7 +1,6 @@
 import React from "react";
 import logo from "../images/acd-eshop.png";
 import { BsSearch } from "react-icons/bs";
-// import { FiShoppingCart } from "react-icons/fi";
 import { GoHome } from "react-icons/go";
 import { Link } from "react-router-dom";
 import Badge from '@mui/material/Badge';
@@ -29,7 +28,7 @@ function Header() {
                 </IconButton>
         </form>
     </div>
-    <p className="flex items-center gap-6 justify-center p-1 bg-amber-500 text-center italic text-sm border-b-2 bg-amber-500 border-slate-400"><FaShippingFast/> Free shipping on Orders Over 50€ <FaShippingFast/>
+    <p className="flex items-center gap-6 justify-center p-1 bg-amber-500 text-center italic text-sm border-b-2 border-slate-400"><FaShippingFast/> Free shipping on Orders Over 50€ <FaShippingFast/>
     </p> 
     </div>);
 }
