@@ -43,8 +43,8 @@ const Products = () => {
       <div key={idx} item={item} className="relative w-[16rem] mb-8 bg-gray-200 rounded-lg ">
         <Link to={`/singleProduct/${item.id}`}>
         <img src={item.images} alt="" className="border-2 rounded-lg hover:opacity-75"/>
-        <div className="flex justify-between ">
-          <p className='text-gray-700'>{item.title}</p>
+        <div className="flex justify-between items-center ">
+          <p className='text-gray-700 py-2'>{item.title}</p>
           <p className="font-bold text-gray-700">{item.price}€</p>
 
         </div></Link>

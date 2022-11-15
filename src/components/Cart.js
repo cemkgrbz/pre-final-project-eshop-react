@@ -5,8 +5,10 @@ function Cart () {
 
     const { cart, setCart } = useContext(Context) 
 
+
+
     const handleClick = (id) => {
-        
+        console.log(cart.id)
     }
 
     return ( 
@@ -20,14 +22,14 @@ function Cart () {
                             <div>{item.title}</div>
                             <div> Price: {item.price}€</div>
                         </div>
-                        <button className="bg-amber-500 px-3 py-1 rounded-[100px] absolute top-[-10px] right-[-10px]">X</button>
+                        <button onClick={handleClick} className="bg-amber-500 px-3 py-1 rounded-[100px] absolute top-[-10px] right-[-10px]">X</button>
                     </div>
                 )
             }
 
-            <div>
+            <div> 
                 {<p className="bg-amber-500 p-4 text-xl text-right w-[50%] m-auto mb-5">
-                    Total price :{cart.reduce((total, item)=>total+(item.price),0)}€
+                    Total price: {cart.reduce((total, item)=>total+(item.price),0)}€
                 </p>}    
             </div>
         </div>

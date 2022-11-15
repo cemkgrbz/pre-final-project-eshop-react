@@ -56,7 +56,7 @@ function SingleProduct(item) {
             </select>
           </div>
   
-          <button onClick={() => handleClick(item)} className="text-center bg-amber-500 rounded-xl px-2 py-1 w-[10rem] mt-4 text-white">
+          <button onClick={() => handleClick(singleProduct)} className="text-center bg-amber-500 rounded-xl px-2 py-1 w-[10rem] mt-4 text-white">
             Add to the Cart
           </button>
 

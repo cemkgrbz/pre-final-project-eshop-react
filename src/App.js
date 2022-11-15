@@ -10,11 +10,6 @@ import { Context } from './context/ContextProvider';
 
 function App() {
 
-  // const [categories, setCategories] = useState([]);
-  // const [products, setProducts] = useState([]);
-  // const [cart, setCart] = useState([]);
-
-
   const {categories, setCategories, topProducts, setTopProducts, cart, setCart} = useContext(Context);
 
 
