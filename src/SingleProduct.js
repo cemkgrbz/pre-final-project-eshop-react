@@ -35,7 +35,7 @@ function SingleProduct(item) {
   return (
     <div className="flex flex-col justify-between w-[70%] m-auto">
       
-      <div className="mt-10 m-auto text-[4vw]">
+      <div className="mt-12 m-auto text-[4vw]">
         {singleProduct.title}
       </div>
 
@@ -69,7 +69,7 @@ function SingleProduct(item) {
             Add to the Cart
           </button>
 
-          <div className="ml-5 mt-10">
+          <div className="ml-5 mt-10 mb-[11rem]">
                  {singleProduct.description}
           </div>
 

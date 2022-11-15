@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div className="relative">
+    <div className="relative bottom-0">
       <div className=" w-[100%] ">
         <footer className="flex items-end justify-around border-t-2 border-b-2 gap-3 border-amber-500 bg-slate-200 p-2 pb-4 text-[13px]">
           <img src={logo} alt="" className="ml-3 w-[70px] mt-2" />
