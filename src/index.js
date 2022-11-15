@@ -9,6 +9,7 @@ import SingleProduct from "./SingleProduct";
 import ContextProvider from "./context/ContextProvider";
 import Categories from './components/Categories'
 import Cart from "./components/Cart";
+import SearchPage from "./components/SearchPage";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -22,6 +23,8 @@ root.render(
       <Route path="/singleProduct/:id" element={<SingleProduct />} />
       <Route path='/categories/:id' element= {<Categories />} />
       <Route path='/cart' element= {<Cart />} />
+      <Route path='/searchResults' element={<SearchPage />}/>
+
 
     </Routes>
     <Footer />

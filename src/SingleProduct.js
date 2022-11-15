@@ -51,9 +51,18 @@ function SingleProduct(item) {
 
 
           <div className="w-[8%] border-2 text-center mt-10">
-            <select  name="" id="">
-              <option value={SelectSizes}></option>
-            </select>
+            
+            <select name="SizeSelect" id="SizeSelectorClothes">
+        <option value="">Please select</option>
+        <option value="xs">XS</option>
+        <option value="s">S</option>
+        <option value="m">M</option>
+        <option value="l">L</option>
+        <option value="xl">XL</option>
+        <option value="xxl">XXL</option>
+        <option value="xxxl">XXXL</option>
+      </select>
+            
           </div>
   
           <button onClick={() => handleClick(singleProduct)} className="text-center bg-amber-500 rounded-xl px-2 py-1 w-[10rem] mt-4 text-white">

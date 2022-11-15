@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import { createContext } from "react";
 
 
@@ -11,8 +11,31 @@ const ContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
 
+  const reducer = (state, action) => {
+
+
+    switch(action.type) {
+
+        case 'search':
+
+        return {
+            ...state,
+            searchText: action.payload
+        }
+        default:
+
+        return
+    }
+
+}
+
+const [state, dispatch] = useReducer(reducer, {
+
+    searchText: ''
+})
+
   return (
-    <Context.Provider value={{products, setProducts, topProducts, setTopProducts, categories, setCategories, cart, setCart}}>
+    <Context.Provider value={{products, setProducts, topProducts, setTopProducts, categories, setCategories, cart, setCart, state, dispatch}}>
 
       {children}
     </Context.Provider>
