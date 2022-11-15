@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import logo from "../images/acd-eshop.png";
 import { BsSearch } from "react-icons/bs";
 import { GoHome } from "react-icons/go";
@@ -13,7 +13,38 @@ import { Context } from "../context/ContextProvider";
 
 function Header() {
 
-    const { cart, setCart } = useContext(Context)
+    const { cart, setCart, products, setProducts, categories, setCategories, topProducts, setTopProducts } = useContext(Context)
+
+
+    useEffect(() => {
+   
+    
+        const getProducts = async() =>{
+          const response = await fetch("https://api.escuelajs.co/api/v1/products")
+          const data = await response.json();
+          // console.log(data)
+          setProducts(data)
+        };  
+        getProducts();
+    
+        const getCategories = async() =>{
+          const response = await fetch("https://api.escuelajs.co/api/v1/categories")
+          const data = await response.json();
+          // console.log(data)
+          setCategories(data.slice(0,4))
+        };  
+        getCategories();
+    
+        const getTopProducts = async() =>{
+          const response = await fetch("https://api.escuelajs.co/api/v1/products")
+          const data = await response.json();
+          // console.log(data)
+          setTopProducts(data.slice(0,8))
+        };  
+        getTopProducts();
+    
+      }, []);
+    
 
     return (
     <div>

@@ -6,9 +6,16 @@ function Cart () {
     const { cart, setCart } = useContext(Context) 
 
 
+    console.log(cart)
+    const handleRemove = (item) => {
 
-    const handleClick = (id) => {
-        console.log(cart.id)
+        const newCart = [...cart]
+        
+        
+        newCart.splice(cart.indexOf(item), 1)
+        setCart(newCart)
+
+        console.log(cart)
     }
 
     return ( 
@@ -22,7 +29,7 @@ function Cart () {
                             <div>{item.title}</div>
                             <div> Price: {item.price}€</div>
                         </div>
-                        <button onClick={handleClick} className="bg-amber-500 px-3 py-1 rounded-[100px] absolute top-[-10px] right-[-10px]">X</button>
+                        <button onClick={() => handleRemove(item)} className="bg-amber-500 px-3 py-1 rounded-[100px] absolute top-[-10px] right-[-10px]">X</button>
                     </div>
                 )
             }
