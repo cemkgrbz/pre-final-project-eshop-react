@@ -35,7 +35,7 @@ function Cart () {
             }
 
             <div> 
-                {<p className="bg-amber-500 p-4 text-xl text-right w-[50%] m-auto mb-5">
+                {<p className="bg-amber-500 p-4 text-xl text-right w-[50%] m-auto mb-[10rem]">
                     Total price: {cart.reduce((total, item)=>total+(item.price),0)}€
                 </p>}    
             </div>
